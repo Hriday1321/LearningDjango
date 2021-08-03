@@ -1,14 +1,16 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate
-from django.contrib.auth import logout
+from django.contrib.auth import logout, login
 
 # Create your views here.
 
 def index(request):
-    return render(request, "index.html")
+    if request.user.is_authenticated:
+        return render(request, "index.html")
+    return redirect('/login')
     
-def login(request):
+def loginUser(request):
     user = None
     userName = None
     passw = None
@@ -18,6 +20,7 @@ def login(request):
     user = authenticate(username=userName, password=passw)
     print(user)
     if user is not None:
+        login(request, user)
         return redirect('/')
     else:
         return render(request, "login.html")

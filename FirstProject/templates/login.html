@@ -8,11 +8,12 @@
     </head>
     <body>
         <div class="container">
+            <h1 class='text-center'>Log-In</h1>
             <form method="post" action="/login">
                 {% csrf_token %}
               <input type="text" id="login" class="form-control" name="username" placeholder="Username">
               <input type="text" id="password" class="form-control" name="password" placeholder="Password">
-              <input type="submit" class="form-control" value="Log In">
+              <input type="submit" class="form-control btn-primary" value="Log In">
             </form>
         </div>
     </body>

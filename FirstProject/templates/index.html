@@ -33,8 +33,11 @@
             </ul>
           </div>
         </nav>
-        Welcome {{ request.user }}
-        <p>You Successfully Logged In!!!!!</p>
-        <a href='/logout' class='text-center btn btn-primary'>Logout</a>
+        <div class='container'>
+            Welcome <strong>{{ request.user }}</strong>
+            <p>You Successfully Logged In!!!!!</p>
+            <a href='/logout' class='btn btn-primary'>Logout</a>
+        </div>
+        
     </body>
 </html>
